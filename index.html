@@ -218,10 +218,11 @@
       max-width: 820px; padding: 2rem 1.5rem;
     }
 
-    /* Avatar SVG */
+    /* Avatar */
     .avatar {
       width: 132px; height: 132px;
       border-radius: 50%;
+      object-fit: cover;
       border: 2.5px solid var(--accent);
       box-shadow: 0 0 28px rgba(var(--accent-rgb),.45), 0 0 64px rgba(var(--accent-rgb),.15);
       margin: 0 auto 1.75rem;
@@ -789,32 +790,8 @@
 ============================= -->
 <section id="hero">
   <div class="hero-inner">
-    <!-- Avatar SVG com iniciais GFM -->
-    <svg class="avatar" viewBox="0 0 132 132" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%"   stop-color="#0d1117"/>
-          <stop offset="100%" stop-color="#161b24"/>
-        </linearGradient>
-        <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%"   stop-color="#00d4ff"/>
-          <stop offset="100%" stop-color="#7c3aed"/>
-        </linearGradient>
-      </defs>
-      <circle cx="66" cy="66" r="66" fill="url(#g1)"/>
-      <circle cx="66" cy="66" r="56" fill="none" stroke="rgba(0,212,255,.18)" stroke-width="1"/>
-      <circle cx="66" cy="66" r="46" fill="none" stroke="rgba(0,212,255,.1)" stroke-width="1"/>
-      <!-- Pontos cardeais decorativos -->
-      <circle cx="66"  cy="14" r="2" fill="rgba(0,212,255,.5)"/>
-      <circle cx="66"  cy="118" r="2" fill="rgba(0,212,255,.5)"/>
-      <circle cx="14"  cy="66" r="2" fill="rgba(0,212,255,.5)"/>
-      <circle cx="118" cy="66" r="2" fill="rgba(0,212,255,.5)"/>
-      <!-- Iniciais -->
-      <text x="66" y="78" text-anchor="middle"
-            font-family="JetBrains Mono,monospace" font-weight="700" font-size="26"
-            fill="url(#g2)">GFM</text>
-      <line x1="40" y1="85" x2="92" y2="85" stroke="rgba(0,212,255,.38)" stroke-width="1"/>
-    </svg>
+    <!-- Foto de perfil -->
+    <img class="avatar" src="assets/icon.jpeg" alt="Gabriel Felipe Jess Meira">
 
     <div class="hero-tag">// desenvolvedor de sistemas</div>
 
@@ -830,7 +807,7 @@
       <a href="mailto:gabrielfjmeira@gmail.com" class="soc-btn" title="Email"><i class="fas fa-envelope"></i></a>
       <a href="https://github.com/gabrielfjm" target="_blank" class="soc-btn" title="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://linkedin.com/in/gabriel-felipe-jess-meira-b7619b22b/" target="_blank" class="soc-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="tel:+5541984961004" class="soc-btn" title="Telefone"><i class="fas fa-phone"></i></a>
+      <a href="https://wa.me/5541984961004" target="_blank" class="soc-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     </div>
 
     <div class="hero-btns">
@@ -1365,10 +1342,10 @@
           <i class="fas fa-copy" style="color:var(--text-muted);margin-left:auto"></i>
         </div>
 
-        <a href="tel:+5541984961004" class="ci">
-          <div class="ci-ico"><i class="fas fa-phone"></i></div>
+        <a href="https://wa.me/5541984961004" target="_blank" class="ci">
+          <div class="ci-ico"><i class="fab fa-whatsapp"></i></div>
           <div>
-            <div class="ci-label">Telefone</div>
+            <div class="ci-label">WhatsApp</div>
             <div class="ci-val">(41) 98496-1004</div>
           </div>
         </a>
@@ -1715,7 +1692,7 @@ function handleForm(e){
 /* ===== DOWNLOAD CV ===== */
 function downloadCV(e){
   e.preventDefault();
-  window.open('curriculo.pdf','_blank');
+  window.open('assets/curriculo.pdf','_blank');
   toast(currentLang==='en'?'📄 Add "cv.pdf" to the repository and update this function!':'📄 Adicione "cv.pdf" ao repositório e atualize esta função!');
 }
 
