@@ -242,6 +242,10 @@ export const cv = {
     pt: ['Liderança', 'Comunicação', 'Responsabilidade', 'Resolução de problemas', 'Adaptabilidade', 'Aprendizado contínuo'],
     en: ['Leadership', 'Communication', 'Responsibility', 'Problem solving', 'Adaptability', 'Continuous learning'],
   },
+  availability: {
+    pt: 'Remoto, presencial ou híbrido · CLT ou PJ',
+    en: 'Remote, on-site or hybrid · Full-time employee (CLT) or contractor (PJ)',
+  },
   volunteering: {
     pt: 'Coordenador da Pastoral da Comunicação e dos Servidores do Altar, Paróquia N. Sra. Auxiliadora (atual)',
     en: 'Coordinator of Communication Ministry and Altar Servers, Our Lady Help of Christians Parish (current)',

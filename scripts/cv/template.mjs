@@ -12,14 +12,14 @@ const L = {
     summary: 'Resumo Profissional', experience: 'Experiência Profissional', education: 'Formação Acadêmica',
     publications: 'Publicações Científicas', skills: 'Competências Técnicas', projects: 'Projetos em Destaque',
     languages: 'Idiomas', soft: 'Competências Comportamentais', awards: 'Prêmios', volunteering: 'Voluntariado',
-    extra: 'Informações Adicionais', tech: 'Tecnologias e competências', phone: 'Telefone', email: 'E-mail', site: 'Site', location: 'Local',
+    extra: 'Informações Adicionais', availability: 'Disponibilidade', tech: 'Tecnologias e competências', phone: 'Telefone', email: 'E-mail', site: 'Site', location: 'Local',
     firstAuthor: 'Primeiro autor', coAuthor: 'Coautor', current: 'Atual',
   },
   en: {
     summary: 'Professional Summary', experience: 'Professional Experience', education: 'Education',
     publications: 'Publications', skills: 'Technical Skills', projects: 'Featured Projects',
     languages: 'Languages', soft: 'Soft Skills', awards: 'Awards', volunteering: 'Volunteering',
-    extra: 'Additional Information', tech: 'Technologies & skills', phone: 'Phone', email: 'Email', site: 'Website', location: 'Location',
+    extra: 'Additional Information', availability: 'Availability', tech: 'Technologies & skills', phone: 'Phone', email: 'Email', site: 'Website', location: 'Location',
     firstAuthor: 'First author', coAuthor: 'Co-author', current: 'Present',
   },
 }
@@ -170,6 +170,7 @@ ${fontCss}
   ${section(l.skills, skills)}
   ${section(l.projects, projs)}
   ${section(l.extra, `<div class="inline">
+    <p><span class="k">${l.availability}:</span> ${esc(t(cv.availability))}</p>
     <p><span class="k">${l.languages}:</span> ${cv.languages.map((x) => `${esc(t(x.name))} (${esc(t(x.level))})`).join(' · ')}</p>
     <p><span class="k">${l.soft}:</span> ${t(cv.softSkills).map(esc).join(', ')}</p>
     <p><span class="k">${l.volunteering}:</span> ${esc(t(cv.volunteering))}</p>
