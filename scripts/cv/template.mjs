@@ -12,14 +12,14 @@ const L = {
     summary: 'Resumo Profissional', experience: 'Experiência Profissional', education: 'Formação Acadêmica',
     publications: 'Publicações Científicas', skills: 'Competências Técnicas', projects: 'Projetos em Destaque',
     languages: 'Idiomas', soft: 'Competências Comportamentais', awards: 'Prêmios', volunteering: 'Voluntariado',
-    extra: 'Informações Adicionais', tech: 'Tecnologias', phone: 'Telefone', email: 'E-mail', site: 'Site', location: 'Local',
+    extra: 'Informações Adicionais', tech: 'Tecnologias e competências', phone: 'Telefone', email: 'E-mail', site: 'Site', location: 'Local',
     firstAuthor: 'Primeiro autor', coAuthor: 'Coautor', current: 'Atual',
   },
   en: {
     summary: 'Professional Summary', experience: 'Professional Experience', education: 'Education',
     publications: 'Publications', skills: 'Technical Skills', projects: 'Featured Projects',
     languages: 'Languages', soft: 'Soft Skills', awards: 'Awards', volunteering: 'Volunteering',
-    extra: 'Additional Information', tech: 'Technologies', phone: 'Phone', email: 'Email', site: 'Website', location: 'Location',
+    extra: 'Additional Information', tech: 'Technologies & skills', phone: 'Phone', email: 'Email', site: 'Website', location: 'Location',
     firstAuthor: 'First author', coAuthor: 'Co-author', current: 'Present',
   },
 }
@@ -28,7 +28,7 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const rich = (s) => esc(s).replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
 const bare = (url) => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')
 
-export function renderCV(lang, { iconDataUri }) {
+export function renderCV(lang, { iconDataUri, photoDataUri, fontCss }) {
   const t = (v) => (v && typeof v === 'object' && !Array.isArray(v) && 'pt' in v ? v[lang] : v)
   const l = L[lang]
   const section = (title, body) => `<section><h2>${esc(title)}</h2>${body}</section>`
@@ -65,7 +65,7 @@ export function renderCV(lang, { iconDataUri }) {
       <div class="row"><h3>${esc(p.title)}</h3><span class="date">${esc(p.short)}</span></div>
       <p class="org">${p.featured ? l.firstAuthor : l.coAuthor} · ${esc(p.venue)} · ${esc(t(p.cite).split(', ').slice(1).join(', '))}</p>
       <p class="authors">${authors}</p>
-      <p class="desc">${esc(t(p.cvSummary))} DOI: ${link(`https://doi.org/${p.doi}`, p.doi)}</p>
+      <p class="desc">${esc(t(p.cvSummary))} DOI: ${link(p.doiUrl || `https://doi.org/${p.doi}`, p.doi)}</p>
     </div>`
   }).join('')
 
@@ -83,8 +83,9 @@ export function renderCV(lang, { iconDataUri }) {
 <head>
 <meta charset="utf-8">
 <title>${esc(profile.name)} | ${esc(t(cv.headline))}</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=block" rel="stylesheet">
 <style>
+  /* Fontes estáticas embutidas: o Chrome grava como TrueType (fontes variáveis viram Tipo 3 e ficam estranhas em vários leitores de PDF) */
+${fontCss}
   @page { size: A4; margin: 9.5mm 13mm 12mm; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -96,7 +97,12 @@ export function renderCV(lang, { iconDataUri }) {
   strong { font-weight: 600; color: #000; }
 
   /* Cabeçalho */
-  .hd { display: flex; justify-content: space-between; align-items: flex-start; gap: 6mm; padding-top: 1mm; }
+  .hd { display: flex; align-items: center; gap: 5mm; padding-top: 1mm; }
+  .hd-text { flex: 1; }
+  .mono-logo { align-self: flex-start; }
+  /* Foto com cantoneiras, como no site */
+  .photo { width: 24mm; height: 24mm; padding: 1.2mm; border: .5pt solid #c9c9c9; flex: none; background: linear-gradient(#000, #000) no-repeat 0 0 / 3mm .8pt, linear-gradient(#000, #000) no-repeat 0 0 / .8pt 3mm, linear-gradient(#000, #000) no-repeat 100% 100% / 3mm .8pt, linear-gradient(#000, #000) no-repeat 100% 100% / .8pt 3mm; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   h1 { font-family: 'Space Grotesk', Arial, sans-serif; font-weight: 700; font-size: 24pt; line-height: 1; letter-spacing: -.03em; color: #000; }
   .headline { margin-top: 2.2mm; font-size: 10.5pt; font-weight: 500; color: #333; }
   .mono-logo { width: 15mm; height: 15mm; border-radius: 3mm; flex: none; }
@@ -125,7 +131,7 @@ export function renderCV(lang, { iconDataUri }) {
   .item.tight { margin-bottom: 1.8mm; }
   .item:last-child { margin-bottom: 0; }
   .row { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
-  h3 { font-family: 'Space Grotesk', Arial, sans-serif; font-weight: 600; font-size: 10.6pt; color: #000; letter-spacing: -.01em; }
+  h3 { font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: 10pt; color: #000; letter-spacing: -.005em; }
   .kind { font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 8.6pt; color: #6b6b6b; letter-spacing: 0; }
   .date { flex: none; font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: #444; }
   .org { margin-top: .4mm; font-size: 8.8pt; color: #555; }
@@ -143,7 +149,8 @@ export function renderCV(lang, { iconDataUri }) {
 </head>
 <body>
   <header class="hd">
-    <div>
+    <div class="photo"><img src="${photoDataUri}" alt=""></div>
+    <div class="hd-text">
       <h1>${esc(profile.name)}</h1>
       <p class="headline">${esc(t(cv.headline))}</p>
     </div>

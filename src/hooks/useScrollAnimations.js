@@ -52,7 +52,11 @@ export function useScrollAnimations(ready, lang) {
       })
 
       // Marca gigante do rodapé
-      gsap.from('.foot-mark', { yPercent: 40, opacity: 0, ease: 'none', scrollTrigger: { trigger: 'footer', start: 'top bottom', end: 'bottom bottom', scrub: true } })
+      gsap.from('.fm-l', {
+        yPercent: 70, rotateX: -70, opacity: 0, duration: 1.4, ease: 'expo.out', stagger: 0.09,
+        clearProps: 'transform,opacity',
+        scrollTrigger: { trigger: '.foot-mark', start: 'top 92%', once: true },
+      })
 
       // Marquees reagem à velocidade e direção do scroll
       const tweens = gsap.utils.toArray('.marquee').map((m) => {

@@ -1,8 +1,38 @@
 import { useEffect, useRef, useState } from 'react'
-import { company, profile } from '../data/content'
+import { company, profile, site } from '../data/content'
 import { useLang } from '../lib/i18n'
 import { scrollToTarget } from '../lib/scroll'
 import { useClock } from '../hooks/useClock'
+import { reduceMotion } from '../lib/env'
+
+/* Letra da logo do rodapé: preenche e "decodifica" ao passar o mouse */
+const GLYPHS = '!<>/[]{}=+*#01ABCDEFGHJKLMNOPQRSTUVWXYZ'
+function MarkLetter({ char, index }) {
+  const [shown, setShown] = useState(char)
+  const timer = useRef()
+  useEffect(() => () => clearInterval(timer.current), [])
+
+  const scramble = () => {
+    if (reduceMotion) return
+    clearInterval(timer.current)
+    let n = 0
+    timer.current = setInterval(() => {
+      n++
+      if (n > 7) { clearInterval(timer.current); setShown(char); return }
+      setShown(GLYPHS[(Math.random() * GLYPHS.length) | 0])
+    }, 45)
+  }
+
+  return <span className="fm-l" style={{ '--i': index }} onPointerEnter={scramble}>{shown}</span>
+}
+
+function FootMark() {
+  return (
+    <div className="foot-mark" aria-hidden="true" data-cursor="GFJM">
+      {site.logo.split('').map((c, i) => <MarkLetter char={c} index={i} key={i} />)}
+    </div>
+  )
+}
 
 /* Botão de voltar ao topo com anel de progresso + barra de progresso no topo */
 function ScrollProgress() {
@@ -81,7 +111,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="foot-mark" aria-hidden="true">GFJM</div>
+          <FootMark />
 
           <div className="foot-bottom">
             <span>© {year} {profile.name}</span>

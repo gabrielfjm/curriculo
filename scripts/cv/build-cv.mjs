@@ -25,6 +25,17 @@ if (!chromePath) throw new Error('Chrome não encontrado. Defina a variável CHR
 
 const iconDataUri = 'data:image/png;base64,' + fs.readFileSync(path.join(root, 'public/icon-192.png')).toString('base64')
 
+// Fontes estáticas (@fontsource) embutidas em base64
+const fontFiles = [
+  ['Inter', '@fontsource/inter/files/inter-latin', [400, 500, 600, 700]],
+  ['Space Grotesk', '@fontsource/space-grotesk/files/space-grotesk-latin', [500, 600, 700]],
+  ['JetBrains Mono', '@fontsource/jetbrains-mono/files/jetbrains-mono-latin', [400, 500]],
+]
+const fontCss = fontFiles.flatMap(([family, base, weights]) => weights.map((w) => {
+  const data = fs.readFileSync(path.join(root, 'node_modules', `${base}-${w}-normal.woff2`)).toString('base64')
+  return `  @font-face { font-family: '${family}'; font-weight: ${w}; font-style: normal; src: url(data:font/woff2;base64,${data}) format('woff2'); }`
+})).join('\n')
+
 const variants = [
   {
     lang: 'pt', file: 'curriculo.pdf',
@@ -42,9 +53,24 @@ const variants = [
 
 const browser = await puppeteer.launch({ executablePath: chromePath, headless: true })
 try {
+  // Foto reduzida para 640px, em preto e branco (a original tem 2048px)
+  const photoPage = await browser.newPage()
+  const photoDataUri = await photoPage.evaluate(async (src) => {
+    const img = new Image()
+    img.src = src
+    await img.decode()
+    const c = document.createElement('canvas')
+    c.width = c.height = 640
+    const ctx = c.getContext('2d')
+    ctx.filter = 'grayscale(1) contrast(1.06)'
+    ctx.drawImage(img, 0, 0, 640, 640)
+    return c.toDataURL('image/jpeg', 0.86)
+  }, 'data:image/png;base64,' + fs.readFileSync(path.join(root, 'public/assets/icon.png')).toString('base64'))
+  await photoPage.close()
+
   for (const v of variants) {
     const page = await browser.newPage()
-    await page.setContent(renderCV(v.lang, { iconDataUri }), { waitUntil: 'load' })
+    await page.setContent(renderCV(v.lang, { iconDataUri, photoDataUri, fontCss }), { waitUntil: 'load' })
     await page.evaluate(() => document.fonts.ready)
     const pdf = await page.pdf({
       format: 'A4',

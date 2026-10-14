@@ -171,7 +171,6 @@ export const publications = [
     },
     links: [
       { label: { pt: 'Ler artigo (PDF)', en: 'Read paper (PDF)' }, url: 'https://www.scitepress.org/Papers/2026/148299/148299.pdf', icon: 'fas fa-file-pdf', solid: true },
-      { label: 'DOI', url: 'https://doi.org/10.5220/0014829900004018', icon: 'fas fa-link' },
       { label: { pt: 'Usar a PANDA', en: 'Try PANDA' }, url: 'https://gabrielfjm.github.io/flutter-pandyzer/', icon: 'fas fa-arrow-right' },
     ],
   },
@@ -193,14 +192,20 @@ export const publications = [
     },
     cite: { pt: 'Anais do WBOTS 2026, p. 16 a 22', en: 'WBOTS 2026 Proceedings, pp. 16 to 22' },
     doi: '10.5753/wbots.2026.33025',
+    // DOI ainda não registrado no doi.org: o link aponta para a página oficial do artigo na SBC
+    doiUrl: 'https://sol.sbc.org.br/index.php/wbots/article/view/46030',
+    facts: [
+      { value: 'SBC', label: { pt: 'Sociedade Brasileira de Computação', en: 'Brazilian Computer Society' } },
+      { value: '4', label: { pt: 'instituições: UTFPR, PUCPR, UFGD e USP', en: 'institutions: UTFPR, PUCPR, UFGD and USP' } },
+      { value: '2º', valueEn: '2nd', label: { pt: 'autor, entre 5', en: 'author, out of 5' } },
+      { value: 'Set/26', valueEn: 'Sep/26', label: { pt: 'publicado nos anais', en: 'published in proceedings' } },
+    ],
     cvSummary: {
       pt: 'Ferramenta web que organiza, a partir de um mapeamento sistemático da literatura, instrumentos de avaliação de chatbots educacionais em um catálogo com busca e filtros.',
       en: 'Web tool that organizes, based on a systematic literature mapping, evaluation instruments for educational chatbots into a searchable, filterable catalog.',
     },
     links: [
       { label: { pt: 'Ver artigo', en: 'View paper' }, url: 'https://sol.sbc.org.br/index.php/wbots/article/view/46030', icon: 'fas fa-file-lines', solid: true },
-      { label: 'DOI', url: 'https://doi.org/10.5753/wbots.2026.33025', icon: 'fas fa-link' },
-      { label: { pt: 'Site do WBOTS', en: 'WBOTS website' }, url: 'https://w-bots.github.io/wbots/2026/', icon: 'fas fa-globe' },
     ],
   },
 ]
@@ -350,13 +355,13 @@ export const experience = [
     bullets: {
       pt: [
         'Fundação e direção estratégica da JESS, empresa de branding, sites e sistemas',
-        'Sites, landing pages, catálogos digitais e sistemas sob medida para clientes como GM Select Brasil e Riss Planejados',
+        'Entrega de sites, landing pages, catálogos e sistemas sob medida para clientes como GM Select Brasil e Riss Planejados',
         'Condução dos projetos de ponta a ponta: briefing, identidade visual, desenvolvimento, SEO, publicação e manutenção',
         'Desenvolvimento do Portal JESS, plataforma própria de gestão de projetos, clientes e cobranças com assistente de IA',
       ],
       en: [
-        'Founded and lead the strategy of JESS, a branding, websites and systems company',
-        'Websites, landing pages, digital catalogs and custom systems for clients such as GM Select Brasil and Riss Planejados',
+        'Founder and strategic lead of JESS, a branding, websites and systems company',
+        'Delivered websites, landing pages, catalogs and custom systems for clients such as GM Select Brasil and Riss Planejados',
         'End-to-end project delivery: briefing, visual identity, development, SEO, launch and maintenance',
         'Built the JESS Portal, an in-house platform for project, client and billing management with an AI assistant',
       ],
@@ -442,7 +447,7 @@ export const experience = [
       pt: [
         'Desenvolvimento de soluções para clientes com GeneXus 9 e MySQL, em equipe ágil com Scrum e Kanban',
         'Criação de CRUDs e relatórios em PDF e XML para dar aos clientes uma visão geral dos seus dados',
-        'Testes do software antes das entregas',
+        'Testes de software antes das entregas',
       ],
       en: [
         'Built client solutions with GeneXus 9 and MySQL in an agile team using Scrum and Kanban',
@@ -454,7 +459,7 @@ export const experience = [
   },
 ]
 
-/* Top 6. kind = selo do card; cta = texto do link */
+/* Top 6, na ordem: produtos próprios, clientes da JESS, acadêmico, pessoal. kind = selo do card; cta = texto do link */
 export const projects = [
   {
     name: 'Portal JESS',
@@ -499,20 +504,6 @@ export const projects = [
     },
   },
   {
-    name: 'Rancho da Cozinha',
-    cvDesc: { pt: "PWA de receitas offline-first com modo cozinha, cálculo nutricional e sincronização com Supabase.", en: "Offline-first recipe PWA with cooking mode, nutrition facts and Supabase sync." },
-    kind: { pt: 'App pessoal', en: 'Personal app' },
-    year: 2026,
-    icon: 'fa-kitchen-set',
-    url: 'https://rancho-da-cozinha.vercel.app',
-    cta: { pt: 'Abrir app', en: 'Open app' },
-    techs: ['React', 'TypeScript', 'Supabase', 'PWA', 'Offline-first'],
-    desc: {
-      pt: 'Caderno de receitas em PWA com modo cozinha, timers, ajuste de porções, cálculo nutricional com 833 ingredientes da tabela TACO, lista de compras e acervo de 789 receitas. Funciona offline e sincroniza com Supabase.',
-      en: 'Recipe notebook PWA with cooking mode, timers, serving adjustment, nutrition facts from 833 ingredients, shopping list and a library of 789 recipes. Works offline and syncs with Supabase.',
-    },
-  },
-  {
     name: 'Riss Planejados',
     cvDesc: { pt: "Site institucional premium para soluções em mármores, granitos e superfícies, com portfólio e captação pelo WhatsApp.", en: "Premium corporate website for marble, granite and surface solutions, with portfolio and WhatsApp lead capture." },
     kind: { pt: 'Cliente JESS', en: 'JESS client' },
@@ -538,6 +529,20 @@ export const projects = [
     desc: {
       pt: 'Site oficial do Workshop sobre Bots na Engenharia de Software, com chamadas, datas, submissões e programação. Também foi onde publiquei como coautor.',
       en: 'Official website of the Workshop on Bots in Software Engineering, with calls, dates, submissions and program. It is also where I published as a co-author.',
+    },
+  },
+  {
+    name: 'Rancho da Cozinha',
+    cvDesc: { pt: "PWA de receitas offline-first com modo cozinha, cálculo nutricional e sincronização com Supabase.", en: "Offline-first recipe PWA with cooking mode, nutrition facts and Supabase sync." },
+    kind: { pt: 'App pessoal', en: 'Personal app' },
+    year: 2026,
+    icon: 'fa-kitchen-set',
+    url: 'https://rancho-da-cozinha.vercel.app',
+    cta: { pt: 'Abrir app', en: 'Open app' },
+    techs: ['React', 'TypeScript', 'Supabase', 'PWA', 'Offline-first'],
+    desc: {
+      pt: 'Caderno de receitas em PWA com modo cozinha, timers, ajuste de porções, cálculo nutricional com 833 ingredientes da tabela TACO, lista de compras e acervo de 789 receitas. Funciona offline e sincroniza com Supabase.',
+      en: 'Recipe notebook PWA with cooking mode, timers, serving adjustment, nutrition facts from 833 ingredients, shopping list and a library of 789 recipes. Works offline and syncs with Supabase.',
     },
   },
 ]

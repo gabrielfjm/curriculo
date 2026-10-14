@@ -38,7 +38,7 @@ function Paper({ p, index }) {
           <span className="paper-short">{String(index + 1).padStart(2, '0')} / {p.short}</span>
         </div>
 
-        <div className="paper-body">
+        <div className={`paper-body${p.facts ? ' has-facts' : ''}`}>
           <div className="paper-main">
             <p className="paper-venue">{p.venue}</p>
             <h3 className="paper-title">{p.title}</h3>
@@ -49,7 +49,14 @@ function Paper({ p, index }) {
               {t(p.review).map((r, i) => <p key={i}><Rich text={r} /></p>)}
             </div>
 
-            <p className="paper-cite"><i className="fas fa-book-open" /> {t(p.cite)}</p>
+            <p className="paper-cite">
+              <span><i className="fas fa-book-open" /> {t(p.cite)}</span>
+              {p.doi && (
+                <a href={p.doiUrl || `https://doi.org/${p.doi}`} target="_blank" rel="noopener">
+                  <i className="fas fa-link" /> DOI {p.doi}
+                </a>
+              )}
+            </p>
             <Links links={p.links} />
           </div>
 
