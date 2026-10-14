@@ -828,9 +828,48 @@ footer { position: relative; z-index: 2; background: var(--bg); border-top: 1px 
 }
 .foot-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-family: var(--mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-3); }
 
-/* Voltar ao topo com anel de progresso */
+/* Botão flutuante do WhatsApp */
+.wa-fab {
+  --edge: clamp(16px, 2.5vw, 28px);
+  position: fixed; right: var(--edge); bottom: var(--edge); z-index: 9150;
+  display: flex; align-items: center; height: 56px; border-radius: 50px;
+  background: var(--fg); color: var(--bg); text-decoration: none;
+  box-shadow: 0 0 0 1px rgba(128, 128, 128, .35), 0 12px 32px rgba(0, 0, 0, .35);
+  opacity: 0; transform: translateY(24px) scale(.6); pointer-events: none;
+  transition: opacity .5s, transform .8s var(--ease), background-color .45s var(--ease), color .45s var(--ease), box-shadow .45s;
+}
+.wa-fab.show { opacity: 1; transform: none; pointer-events: auto; transition-delay: .6s, .6s, 0s, 0s, 0s; }
+.wa-fab.show:hover { transition-delay: 0s; }
+.menu-open .wa-fab { opacity: 0; pointer-events: none; }
+/* Anel que pulsa devagar */
+.wa-fab::before {
+  content: ''; position: absolute; right: 0; top: 0; width: 56px; height: 56px; border-radius: 50%;
+  border: 1.5px solid var(--fg); pointer-events: none;
+  animation: waPulse 3.2s var(--ease) infinite;
+}
+@keyframes waPulse {
+  0%   { transform: scale(1); opacity: .55; }
+  70%, 100% { transform: scale(1.65); opacity: 0; }
+}
+.wa-ico { width: 56px; height: 56px; flex: none; display: flex; align-items: center; justify-content: center; font-size: 1.65rem; }
+.wa-ico i { transition: transform .6s var(--ease); }
+/* Etiqueta que desliza para a esquerda no hover */
+.wa-label {
+  max-width: 0; overflow: hidden; white-space: nowrap; opacity: 0;
+  font-family: var(--mono); font-size: .74rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  transition: max-width .6s var(--ease), opacity .4s, padding .6s var(--ease);
+}
+.wa-fab:hover, .wa-fab:focus-visible {
+  background: var(--bg); color: var(--fg);
+  box-shadow: 0 0 0 1px var(--fg), 0 12px 32px rgba(0, 0, 0, .35);
+}
+.wa-fab:hover .wa-label, .wa-fab:focus-visible .wa-label { max-width: 160px; opacity: 1; padding-left: 1.4rem; }
+.wa-fab:hover .wa-ico i { transform: rotate(-12deg) scale(1.08); }
+.wa-fab:hover::before { animation-play-state: paused; opacity: 0; }
+
+/* Voltar ao topo com anel de progresso (acima do WhatsApp) */
 .to-top {
-  position: fixed; right: clamp(16px, 2.5vw, 28px); bottom: clamp(16px, 2.5vw, 28px); z-index: 9100;
+  position: fixed; right: calc(clamp(16px, 2.5vw, 28px) + 2px); bottom: calc(clamp(16px, 2.5vw, 28px) + 68px); z-index: 9100;
   width: 52px; height: 52px; border-radius: 50%; border: 0; cursor: pointer;
   background: var(--surface); color: var(--fg);
   display: flex; align-items: center; justify-content: center;

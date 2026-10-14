@@ -18,7 +18,9 @@ export const profile = {
   linkedin: 'https://linkedin.com/in/gabrielfjm/',
   cv: '/assets/curriculo.pdf',
   cvEn: '/assets/resume.pdf',
-  avatar: '/assets/icon.png',
+  // Foto otimizada (a original de 2048px fica em assets-src/ e é usada só para gerar o CV)
+  avatar: '/assets/foto-800.webp',
+  avatarSrcSet: '/assets/foto-480.webp 480w, /assets/foto-800.webp 800w',
   location: 'Piraquara, PR',
   coords: '25°26′S 49°04′W',
 }

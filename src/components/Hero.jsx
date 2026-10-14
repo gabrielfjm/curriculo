@@ -66,7 +66,15 @@ export default function Hero({ ready }) {
         <aside className="hero-card hero-anim" data-cursor="Hi!">
           <div className="frame">
             <div className="frame-img">
-              <img src={profile.avatar} alt={`Foto de ${profile.name}`} />
+              <img
+                src={profile.avatar}
+                srcSet={profile.avatarSrcSet}
+                sizes="(max-width: 700px) 110px, (max-width: 1024px) 150px, 280px"
+                width="800"
+                height="800"
+                fetchPriority="high"
+                alt={`Foto de ${profile.name}`}
+              />
               <div className="scanline" />
             </div>
             <span className="frame-tag">ID · GFJM-001</span>

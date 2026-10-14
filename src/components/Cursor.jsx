@@ -27,7 +27,7 @@ export default function Cursor() {
     const over = (e) => {
       if (!(e.target instanceof Element)) return
       const labeled = e.target.closest('[data-cursor]')
-      const link = e.target.closest('a, button, .tile, .chip, .tag')
+      const link = !e.target.closest('.wa-fab') && e.target.closest('a, button, .tile, .chip, .tag')
       if (labeled) {
         label.current.textContent = labeled.dataset.cursor
         root.classList.add('cursor-label'); root.classList.remove('cursor-hover')

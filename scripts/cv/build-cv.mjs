@@ -53,7 +53,7 @@ const variants = [
 
 const browser = await puppeteer.launch({ executablePath: chromePath, headless: true })
 try {
-  // Foto reduzida para 640px, em preto e branco (a original tem 2048px)
+  // Foto reduzida para 640px, colorida (a original tem 2048px)
   const photoPage = await browser.newPage()
   const photoDataUri = await photoPage.evaluate(async (src) => {
     const img = new Image()
@@ -62,10 +62,10 @@ try {
     const c = document.createElement('canvas')
     c.width = c.height = 640
     const ctx = c.getContext('2d')
-    ctx.filter = 'grayscale(1) contrast(1.06)'
+    ctx.imageSmoothingQuality = 'high'
     ctx.drawImage(img, 0, 0, 640, 640)
     return c.toDataURL('image/jpeg', 0.86)
-  }, 'data:image/png;base64,' + fs.readFileSync(path.join(root, 'public/assets/icon.png')).toString('base64'))
+  }, 'data:image/png;base64,' + fs.readFileSync(path.join(root, 'assets-src/foto-original.png')).toString('base64'))
   await photoPage.close()
 
   for (const v of variants) {

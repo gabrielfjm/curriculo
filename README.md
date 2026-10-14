@@ -22,7 +22,8 @@ npm run preview  # testa o build
 - **Textos e dados** (experiências, projetos, cases da JESS, stack…): `src/data/content.js`
 - **Estilos**: `src/styles.css`
 - **Seções**: `src/components/`
-- **Arquivos estáticos** (foto, PDF do currículo, CNAME): `public/`
+- **Arquivos estáticos** (foto otimizada, PDFs do currículo, CNAME): `public/`
+- **Foto original** (2048px, usada só para gerar o CV): `assets-src/foto-original.png`
 
 ## Currículo em PDF
 

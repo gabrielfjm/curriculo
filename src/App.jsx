@@ -18,6 +18,7 @@ import Projects from './components/Projects'
 import Volunteering from './components/Volunteering'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import WhatsAppButton from './components/WhatsAppButton'
 import { Marquee } from './components/ui'
 
 export default function App() {
@@ -54,6 +55,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <WhatsAppButton ready={ready} />
     </>
   )
 }
