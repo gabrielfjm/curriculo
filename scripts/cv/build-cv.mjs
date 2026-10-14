@@ -5,6 +5,7 @@
  * Saída: public/assets/curriculo.pdf (PT) e public/assets/resume.pdf (EN)
  */
 import fs from 'node:fs'
+import crypto from 'node:crypto'
 import path from 'node:path'
 import puppeteer from 'puppeteer-core'
 import { PDFDocument } from 'pdf-lib'
@@ -100,3 +101,12 @@ try {
 } finally {
   await browser.close()
 }
+
+// Código de versão usado no link do CV no site (muda a cada PDF novo e fura o cache do navegador)
+const hash = crypto.createHash('sha1')
+for (const v of variants) hash.update(fs.readFileSync(path.join(out, v.file)))
+const version = hash.digest('hex').slice(0, 8)
+fs.writeFileSync(path.join(root, 'src/data/cv-version.js'), `// Gerado por npm run cv. Não edite.
+export const cvVersion = '${version}'
+`)
+console.log(`cv: versão ${version}`)

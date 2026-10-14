@@ -101,16 +101,20 @@ ${fontCss}
   .hd-text { flex: 1; }
   .mono-logo { align-self: flex-start; }
   /* Foto com cantoneiras, como no site */
-  .photo { width: 24mm; height: 24mm; padding: 1.2mm; border: .5pt solid #c9c9c9; flex: none; background: linear-gradient(#000, #000) no-repeat 0 0 / 3mm .8pt, linear-gradient(#000, #000) no-repeat 0 0 / .8pt 3mm, linear-gradient(#000, #000) no-repeat 100% 100% / 3mm .8pt, linear-gradient(#000, #000) no-repeat 100% 100% / .8pt 3mm; }
+  .photo { width: 27mm; height: 27mm; padding: 1.2mm; border: .5pt solid #c9c9c9; flex: none; background: linear-gradient(#000, #000) no-repeat 0 0 / 3mm .8pt, linear-gradient(#000, #000) no-repeat 0 0 / .8pt 3mm, linear-gradient(#000, #000) no-repeat 100% 100% / 3mm .8pt, linear-gradient(#000, #000) no-repeat 100% 100% / .8pt 3mm; }
   .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   h1 { font-family: 'Space Grotesk', Arial, sans-serif; font-weight: 700; font-size: 24pt; line-height: 1; letter-spacing: -.03em; color: #000; }
-  .headline { margin-top: 2.2mm; font-size: 10.5pt; font-weight: 500; color: #333; }
+  .headline { margin-top: 2.2mm; font-size: 9.9pt; font-weight: 500; color: #333; white-space: nowrap; }
   .mono-logo { width: 15mm; height: 15mm; border-radius: 3mm; flex: none; }
   .contact {
     display: flex; flex-wrap: wrap; gap: 1.2mm 5mm; margin-top: 3.4mm; padding: 2.2mm 0;
     border-top: 1.2pt solid #000; border-bottom: .5pt solid #cfcfcf; font-size: 8.4pt;
   }
   .c { white-space: nowrap; }
+  .highlights { display: flex; margin-top: 2.6mm; background: #f3f3f1; border-radius: 1.6mm; }
+  .hl { flex: 1; padding: 2mm 3mm; font-size: 8.6pt; color: #3a3a3a; white-space: nowrap; text-align: center; }
+  .hl + .hl { border-left: .5pt solid #d6d6d2; }
+  .hl strong { font-family: 'Inter', Arial, sans-serif; font-weight: 700; font-size: 9.6pt; color: #000; }
   .k { font-family: 'JetBrains Mono', monospace; font-size: 7.4pt; letter-spacing: 0; text-transform: uppercase; color: #6b6b6b; }
 
   /* Seções */
@@ -157,6 +161,7 @@ ${fontCss}
     <img class="mono-logo" src="${iconDataUri}" alt="">
   </header>
   <div class="contact">${contact}</div>
+  <div class="highlights">${t(cv.highlights).map(([b, rest]) => `<span class="hl"><strong>${esc(b)}</strong> ${esc(rest)}</span>`).join('')}</div>
 
   ${section(l.summary, `<p class="summary">${rich(t(cv.summary))}</p>`)}
   ${section(l.experience, exp)}
@@ -165,7 +170,7 @@ ${fontCss}
   ${section(l.skills, skills)}
   ${section(l.projects, projs)}
   ${section(l.extra, `<div class="inline">
-    <p><span class="k">${l.languages}:</span> ${cv.languages.map((x) => `${esc(t(x.name))} (${esc(t(x.level))})`).join(', ')}</p>
+    <p><span class="k">${l.languages}:</span> ${cv.languages.map((x) => `${esc(t(x.name))} (${esc(t(x.level))})`).join(' · ')}</p>
     <p><span class="k">${l.soft}:</span> ${t(cv.softSkills).map(esc).join(', ')}</p>
     <p><span class="k">${l.volunteering}:</span> ${esc(t(cv.volunteering))}</p>
   </div>`)}

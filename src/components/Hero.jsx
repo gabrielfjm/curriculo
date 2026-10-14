@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { hero, profile, company } from '../data/content'
+import { cvVersion } from '../data/cv-version'
 import { useLang } from '../lib/i18n'
 import { reduceMotion } from '../lib/env'
 import { useClock } from '../hooks/useClock'
@@ -57,7 +58,7 @@ export default function Hero({ ready }) {
             <a href={company.url} target="_blank" rel="noopener" className="btn btn-ghost magnetic">
               {company.name} <i className="fas fa-arrow-right arr" />
             </a>
-            <a href={en ? profile.cvEn : profile.cv} target="_blank" rel="noopener" className="btn btn-ghost magnetic">
+            <a href={`${en ? profile.cvEn : profile.cv}?v=${cvVersion}`} target="_blank" rel="noopener" className="btn btn-ghost magnetic">
               <i className="fas fa-download" /> CV
             </a>
           </div>

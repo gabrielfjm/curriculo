@@ -219,6 +219,11 @@ export const cv = {
     en: 'Software Engineer · Full Stack Developer · CEO of JESS Branding',
   },
   location: { pt: 'Piraquara, PR, Brasil', en: 'Piraquara, PR, Brazil' },
+  // Faixa de destaques logo abaixo dos contatos: [texto em negrito, complemento]
+  highlights: {
+    pt: [['4+ anos', 'de experiência'], ['1º autor', 'no ICEIS 2026'], ['CEO', 'da JESS Branding'], ['Prêmio', 'Marcelino Champagnat']],
+    en: [['4+ years', 'of experience'], ['1st author', 'at ICEIS 2026'], ['CEO', 'of JESS Branding'], ['Marcelino', 'Champagnat Award']],
+  },
   summary: {
     pt: 'Engenheiro de Software e Desenvolvedor Full Stack, **CEO e fundador da JESS Branding** e **Mestrando em Informática na PUCPR**, Bolsista CAPES. Mais de 4 anos de experiência em desenvolvimento web, mobile e back-end com Java, Spring Boot, React, Flutter, .NET, PHP e MySQL, do levantamento de requisitos à publicação. **Primeiro autor de artigo internacional no ICEIS 2026** sobre avaliação de usabilidade apoiada por LLM. Premiado como Aluno Marcelino Champagnat, destaque único da turma de Engenharia de Software da PUCPR.',
     en: 'Software Engineer and Full Stack Developer, **CEO and founder of JESS Branding** and **MSc student in Computer Science at PUCPR**, CAPES Scholar. Over 4 years of experience in web, mobile and back-end development with Java, Spring Boot, React, Flutter, .NET, PHP and MySQL, from requirements gathering to launch. **First author of an international paper at ICEIS 2026** on LLM-supported usability evaluation. Awarded the Marcelino Champagnat Award as the sole outstanding student of the PUCPR Software Engineering class.',
@@ -242,8 +247,8 @@ export const cv = {
     en: 'Coordinator of Communication Ministry and Altar Servers, Our Lady Help of Christians Parish (current)',
   },
   languages: [
-    { name: { pt: 'Português', en: 'Portuguese' }, level: { pt: 'Nativo', en: 'Native' } },
-    { name: { pt: 'Inglês', en: 'English' }, level: { pt: 'Intermediário (leitura técnica)', en: 'Intermediate (technical reading)' } },
+    { name: { pt: 'Português', en: 'Portuguese' }, level: { pt: 'nativo', en: 'native' } },
+    { name: { pt: 'Inglês', en: 'English' }, level: { pt: 'intermediário, leitura técnica', en: 'intermediate, technical reading' } },
   ],
 }
 
