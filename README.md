@@ -24,6 +24,14 @@ npm run preview  # testa o build
 - **Seções**: `src/components/`
 - **Arquivos estáticos** (foto, PDF do currículo, CNAME): `public/`
 
+## Currículo em PDF
+
+```bash
+npm run cv   # gera public/assets/curriculo.pdf (PT) e public/assets/resume.pdf (EN)
+```
+
+O CV é gerado a partir de `src/data/content.js` (experiências, formação, publicações, projetos e o bloco `cv`), então site e PDF ficam sempre iguais. Precisa do Google Chrome instalado (ou da variável `CHROME_PATH`). O modelo fica em `scripts/cv/template.mjs` e foi feito para a triagem automática (Gupy, LinkedIn): uma coluna, texto real, títulos padrão, datas MM/AAAA e nenhum elemento posicionado que bagunce a ordem de leitura.
+
 ## SEO
 
 - O `npm run build` **pré-renderiza** a página (`src/entry-server.jsx` + `scripts/prerender.mjs`), então o HTML publicado já contém todo o texto para o Google.

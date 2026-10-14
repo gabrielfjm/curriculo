@@ -8,7 +8,7 @@ import HeroCanvas from './HeroCanvas'
 import { Scramble, Typing } from './ui'
 
 export default function Hero({ ready }) {
-  const { t, lang } = useLang()
+  const { t, lang, en } = useLang()
   const time = useClock()
   const ref = useRef(null)
 
@@ -57,7 +57,7 @@ export default function Hero({ ready }) {
             <a href={company.url} target="_blank" rel="noopener" className="btn btn-ghost magnetic">
               {company.name} <i className="fas fa-arrow-right arr" />
             </a>
-            <a href={profile.cv} target="_blank" rel="noopener" className="btn btn-ghost magnetic">
+            <a href={en ? profile.cvEn : profile.cv} target="_blank" rel="noopener" className="btn btn-ghost magnetic">
               <i className="fas fa-download" /> CV
             </a>
           </div>

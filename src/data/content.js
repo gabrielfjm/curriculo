@@ -17,6 +17,7 @@ export const profile = {
   github: 'https://github.com/gabrielfjm',
   linkedin: 'https://linkedin.com/in/gabrielfjm/',
   cv: '/assets/curriculo.pdf',
+  cvEn: '/assets/resume.pdf',
   avatar: '/assets/icon.png',
   location: 'Piraquara, PR',
   coords: '25°26′S 49°04′W',
@@ -163,6 +164,11 @@ export const publications = [
       { value: 'Gemini', label: { pt: 'LLM do assistente', en: 'assistant LLM' } },
     ],
     cite: { pt: 'Proceedings do ICEIS 2026, Vol. 3, p. 1916 a 1927', en: 'ICEIS 2026 Proceedings, Vol. 3, pp. 1916 to 1927' },
+    doi: '10.5220/0014829900004018',
+    cvSummary: {
+      pt: 'Apresenta a PANDA, ferramenta web de avaliação heurística com assistente baseado em LLM (Gemini), validada em estudo experimental com 12 avaliadores pelo modelo TAM 3.0, com alta aceitação (medianas acima de 5,5 em 7).',
+      en: 'Presents PANDA, a heuristic evaluation web tool with an LLM-based assistant (Gemini), validated in an experimental study with 12 evaluators using TAM 3.0, showing high acceptance (medians above 5.5 out of 7).',
+    },
     links: [
       { label: { pt: 'Ler artigo (PDF)', en: 'Read paper (PDF)' }, url: 'https://www.scitepress.org/Papers/2026/148299/148299.pdf', icon: 'fas fa-file-pdf', solid: true },
       { label: 'DOI', url: 'https://doi.org/10.5220/0014829900004018', icon: 'fas fa-link' },
@@ -186,6 +192,11 @@ export const publications = [
       en: ['Presents a **web tool** built from a systematic literature mapping, which organizes evaluation instruments for educational chatbots into a searchable, filterable catalog, centralizing the description, quality attributes, modality, languages and access to each instrument.'],
     },
     cite: { pt: 'Anais do WBOTS 2026, p. 16 a 22', en: 'WBOTS 2026 Proceedings, pp. 16 to 22' },
+    doi: '10.5753/wbots.2026.33025',
+    cvSummary: {
+      pt: 'Ferramenta web que organiza, a partir de um mapeamento sistemático da literatura, instrumentos de avaliação de chatbots educacionais em um catálogo com busca e filtros.',
+      en: 'Web tool that organizes, based on a systematic literature mapping, evaluation instruments for educational chatbots into a searchable, filterable catalog.',
+    },
     links: [
       { label: { pt: 'Ver artigo', en: 'View paper' }, url: 'https://sol.sbc.org.br/index.php/wbots/article/view/46030', icon: 'fas fa-file-lines', solid: true },
       { label: 'DOI', url: 'https://doi.org/10.5753/wbots.2026.33025', icon: 'fas fa-link' },
@@ -194,11 +205,47 @@ export const publications = [
   },
 ]
 
+/* CV em PDF: textos que só aparecem no currículo (gerado por npm run cv) */
+export const cv = {
+  headline: {
+    pt: 'Engenheiro de Software · Desenvolvedor Full Stack · CEO da JESS Branding',
+    en: 'Software Engineer · Full Stack Developer · CEO of JESS Branding',
+  },
+  location: { pt: 'Piraquara, PR, Brasil', en: 'Piraquara, PR, Brazil' },
+  summary: {
+    pt: 'Engenheiro de Software e Desenvolvedor Full Stack, **CEO e fundador da JESS Branding** e **Mestrando em Informática na PUCPR**, Bolsista CAPES. Mais de 4 anos de experiência em desenvolvimento web, mobile e back-end com Java, Spring Boot, React, Flutter, .NET, PHP e MySQL, do levantamento de requisitos à publicação. **Primeiro autor de artigo internacional no ICEIS 2026** sobre avaliação de usabilidade apoiada por LLM. Premiado como Aluno Marcelino Champagnat, destaque único da turma de Engenharia de Software da PUCPR.',
+    en: 'Software Engineer and Full Stack Developer, **CEO and founder of JESS Branding** and **MSc student in Computer Science at PUCPR**, CAPES Scholar. Over 4 years of experience in web, mobile and back-end development with Java, Spring Boot, React, Flutter, .NET, PHP and MySQL, from requirements gathering to launch. **First author of an international paper at ICEIS 2026** on LLM-supported usability evaluation. Awarded the Marcelino Champagnat Award as the sole outstanding student of the PUCPR Software Engineering class.',
+  },
+  skills: [
+    { name: { pt: 'Linguagens', en: 'Languages' }, items: ['Java', 'JavaScript', 'TypeScript', 'C#', 'PHP', 'Python', 'Dart', 'SQL', 'HTML5', 'CSS3'] },
+    { name: 'Back-end', items: ['Spring Boot', 'Spring MVC', 'Spring Data JPA', '.NET / .NET Core', 'Entity Framework', { pt: 'APIs REST', en: 'REST APIs' }] },
+    { name: 'Front-end & Mobile', items: ['React', 'Vite', 'Tailwind CSS', 'Flutter', { pt: 'Design responsivo', en: 'Responsive design' }, 'PWA'] },
+    { name: { pt: 'Banco de dados', en: 'Databases' }, items: ['MySQL', 'SQL Server (T-SQL)', 'Supabase'] },
+    { name: { pt: 'Práticas e ferramentas', en: 'Practices & tools' }, items: ['Git', 'GitHub', 'GitHub Actions', 'Git Flow', 'Scrum', 'Kanban', 'UML', 'BPMN', { pt: 'Testes de software (Robot Framework)', en: 'Software testing (Robot Framework)' }, 'Design Patterns (MVC, Repository)'] },
+    { name: { pt: 'IA e pesquisa', en: 'AI & research' }, items: ['LLM (Gemini)', { pt: 'Interação Humano-Computador', en: 'Human-Computer Interaction' }, { pt: 'Avaliação heurística', en: 'Heuristic evaluation' }, { pt: 'Estudos experimentais', en: 'Experimental studies' }] },
+    { name: { pt: 'Negócios', en: 'Business' }, items: ['Branding', 'SEO', { pt: 'Levantamento de requisitos', en: 'Requirements gathering' }, { pt: 'ETP para licitações', en: 'Procurement studies (ETP)' }, 'Power BI', { pt: 'Pacote Office', en: 'Office Suite' }] },
+    { name: { pt: 'Experiência breve', en: 'Brief experience' }, items: ['GeneXus', 'COBOL', 'Hadoop', 'Apache Spark'] },
+  ],
+  softSkills: {
+    pt: ['Liderança', 'Comunicação', 'Responsabilidade', 'Resolução de problemas', 'Adaptabilidade', 'Aprendizado contínuo'],
+    en: ['Leadership', 'Communication', 'Responsibility', 'Problem solving', 'Adaptability', 'Continuous learning'],
+  },
+  volunteering: {
+    pt: 'Coordenador da Pastoral da Comunicação e dos Servidores do Altar, Paróquia N. Sra. Auxiliadora (atual)',
+    en: 'Coordinator of Communication Ministry and Altar Servers, Our Lady Help of Christians Parish (current)',
+  },
+  languages: [
+    { name: { pt: 'Português', en: 'Portuguese' }, level: { pt: 'Nativo', en: 'Native' } },
+    { name: { pt: 'Inglês', en: 'English' }, level: { pt: 'Intermediário (leitura técnica)', en: 'Intermediate (technical reading)' } },
+  ],
+}
+
 export const education = {
   items: [
     {
       date: { pt: '2026 · Atual', en: '2026 · Present' },
       title: { pt: 'Mestrando em Informática', en: 'MSc in Computer Science' },
+      cvTitle: { pt: 'Mestrado em Informática (em andamento)', en: 'MSc in Computer Science (in progress)' },
       inst: 'PUCPR · Pontifícia Universidade Católica do Paraná',
       desc: { pt: 'Programa de Pós-Graduação em Informática (PPGIA). Pesquisa em desenvolvimento de software e computação aplicada.', en: 'Graduate Program in Computer Science (PPGIA). Research in software development and applied computing.' },
       badge: { icon: 'fa-award', label: { pt: 'Bolsista CAPES', en: 'CAPES Scholar' } },
@@ -206,14 +253,15 @@ export const education = {
     {
       date: { pt: '2022 a 2025', en: '2022 to 2025' },
       title: { pt: 'Bacharel em Engenharia de Software', en: 'BSc in Software Engineering' },
+      cvTitle: { pt: 'Bacharelado em Engenharia de Software', en: 'BSc in Software Engineering' },
       inst: 'PUCPR · Pontifícia Universidade Católica do Paraná',
       desc: { pt: 'Formação sólida em engenharia e desenvolvimento de software, arquitetura, qualidade de código e metodologias ágeis.', en: 'Solid training in software engineering and development, architecture, code quality and agile methodologies.' },
       badge: { icon: 'fa-star', label: { pt: 'Aluno Marcelino Champagnat · Turma 2022', en: 'Marcelino Champagnat Award · Class of 2022' } },
     },
     {
       date: { pt: '2019 a 2021', en: '2019 to 2021' },
-      title: { pt: 'Técnico em Informática', en: 'IT Technician' },
-      inst: 'TECPUC · Centro Tecnológico da PUCPR',
+      title: { pt: 'Técnico em Informática integrado ao Ensino Médio', en: 'IT Technician (integrated high school)' },
+      inst: 'TECPUC · Centro de Educação Profissional Irmão Mário Cristóvão',
       desc: { pt: 'Formação técnica com foco em programação, redes, banco de dados e desenvolvimento web.', en: 'Technical training focused on programming, networks, databases and web development.' },
     },
   ],
@@ -282,110 +330,127 @@ export const stack = [
 ]
 export const stackBonus = { name: { pt: 'Bônus · breve', en: 'Bonus · brief' }, items: ['COBOL', 'Hadoop', 'Apache Spark', 'GeneXus (GX9)'] }
 
+/*
+ * Experiência profissional (site e CV em PDF).
+ * period: datas MM/AAAA, formato que a triagem automática (Gupy, LinkedIn) entende.
+ * stack: tecnologias do cargo, que viram palavras-chave no CV.
+ */
 export const experience = [
   {
     current: true,
-    when: { pt: 'Atual', en: 'Present' },
+    when: { pt: 'Fev/2026 · Atual', en: 'Feb/2026 · Present' },
+    period: { pt: '02/2026 - Atual', en: '02/2026 - Present' },
     whenSub: { pt: 'Fundador', en: 'Founder' },
     title: 'CEO & Founder',
     org: 'JESS Branding ↗',
+    orgName: 'JESS Branding',
     orgUrl: 'https://www.jessbranding.com.br',
+    place: { pt: 'Piraquara, PR · Presencial e remoto', en: 'Piraquara, Brazil · On-site and remote' },
     chip: { pt: 'Empreendedor', en: 'Entrepreneur' },
     bullets: {
       pt: [
-        'Fundação e direção estratégica da JESS: branding, sistemas e crescimento',
-        'Criação de sites profissionais, landing pages, catálogos digitais e sistemas sob medida',
-        'Condução dos projetos de ponta a ponta: estratégia, identidade visual, desenvolvimento, SEO e publicação',
-        'Desenvolvimento do Portal JESS, plataforma própria de gestão de projetos e clientes',
+        'Fundação e direção estratégica da JESS, empresa de branding, sites e sistemas',
+        'Sites, landing pages, catálogos digitais e sistemas sob medida para clientes como GM Select Brasil e Riss Planejados',
+        'Condução dos projetos de ponta a ponta: briefing, identidade visual, desenvolvimento, SEO, publicação e manutenção',
+        'Desenvolvimento do Portal JESS, plataforma própria de gestão de projetos, clientes e cobranças com assistente de IA',
       ],
       en: [
-        'Founded and lead the strategy of JESS: branding, systems and growth',
-        'Creation of professional websites, landing pages, digital catalogs and custom systems',
-        'End-to-end project delivery: strategy, visual identity, development, SEO and launch',
-        'Built the JESS Portal, an in-house platform for project and client management',
+        'Founded and lead the strategy of JESS, a branding, websites and systems company',
+        'Websites, landing pages, digital catalogs and custom systems for clients such as GM Select Brasil and Riss Planejados',
+        'End-to-end project delivery: briefing, visual identity, development, SEO, launch and maintenance',
+        'Built the JESS Portal, an in-house platform for project, client and billing management with an AI assistant',
       ],
     },
+    stack: ['React', 'Vite', 'JavaScript', 'SEO', 'Branding', { pt: 'IA generativa', en: 'Generative AI' }],
   },
   {
     current: true,
     when: { pt: '2026 · Atual', en: '2026 · Present' },
-    title: { pt: 'Mestrando em Informática', en: 'MSc in Computer Science' },
+    period: { pt: '2026 - Atual', en: '2026 - Present' },
+    title: { pt: 'Pesquisador · Mestrando em Informática', en: 'Researcher · MSc in Computer Science' },
     org: 'PUCPR · Pontifícia Universidade Católica do Paraná',
+    orgName: 'PUCPR (Pontifícia Universidade Católica do Paraná)',
+    place: { pt: 'Curitiba, PR · Bolsista CAPES integral', en: 'Curitiba, Brazil · Full CAPES scholarship' },
     chip: { pt: 'Bolsista CAPES', en: 'CAPES Scholar' },
     bullets: {
       pt: [
-        'Pesquisa no Programa de Pós-Graduação em Informática (PPGIA)',
-        'Desenvolvimento de pesquisa científica em computação aplicada',
-        'Primeiro autor de artigo no ICEIS 2026 e coautor de artigo no WBOTS 2026',
-        'Bolsista integral CAPES, com dedicação exclusiva à pesquisa e ao ensino',
+        'Pesquisa em Engenharia de Software e Interação Humano-Computador no PPGIA da PUCPR',
+        'Primeiro autor de artigo no ICEIS 2026 sobre a PANDA, ferramenta de avaliação heurística apoiada por LLM',
+        'Coautor de artigo no WBOTS 2026 sobre seleção de instrumentos de avaliação de chatbots educacionais',
       ],
       en: [
-        'Research in the Graduate Program in Computer Science (PPGIA)',
-        'Scientific research development in applied computing',
-        'First author of a paper at ICEIS 2026 and co-author of a paper at WBOTS 2026',
-        'Full CAPES scholarship, with exclusive dedication to research and teaching',
+        'Research in Software Engineering and Human-Computer Interaction at PUCPR (PPGIA)',
+        'First author of an ICEIS 2026 paper on PANDA, an LLM-supported heuristic evaluation tool',
+        'Co-author of a WBOTS 2026 paper on selecting evaluation instruments for educational chatbots',
       ],
     },
+    stack: ['Flutter', 'Java', 'Spring Boot', 'MySQL', 'LLM (Gemini)', { pt: 'Estudos experimentais', en: 'Experimental studies' }],
   },
   {
     when: { pt: 'Fev/2025 a Ago/2025', en: 'Feb/2025 to Aug/2025' },
+    period: { pt: '02/2025 - 08/2025', en: '02/2025 - 08/2025' },
     title: { pt: 'Auxiliar de Programação', en: 'Programming Assistant' },
     org: 'Evo Sistemas Inteligentes',
+    orgName: 'Evo Sistemas Inteligentes',
     chip: { pt: 'Estagiário → Auxiliar', en: 'Intern → Assistant' },
     bullets: {
       pt: [
-        'Desenvolvimento de sistemas web e APIs REST em ambiente ágil',
-        'Evolução de estagiário para Auxiliar de Programação durante o período',
-        'Atuação em times Scrum com entregas incrementais e sprints semanais',
-        'Manutenção e evolução de sistemas legados',
+        'Manutenção e evolução do sistema da empresa com Flutter, Java (Spring Boot) e MySQL',
+        'Promovido de estagiário a Auxiliar de Programação em julho de 2025',
+        'Treinamento de novos estagiários: configuração do ambiente de desenvolvimento e padrões do código',
       ],
       en: [
-        'Web systems and REST API development in an agile environment',
-        'Promoted from Intern to Programming Assistant during the period',
-        'Worked in Scrum teams with incremental deliveries and weekly sprints',
-        'Maintenance and evolution of legacy systems',
+        "Maintenance and evolution of the company's system with Flutter, Java (Spring Boot) and MySQL",
+        'Promoted from intern to Programming Assistant in July 2025',
+        'Training of new interns: development environment setup and code standards',
       ],
     },
+    stack: ['Flutter', 'Dart', 'Java', 'Spring Boot', 'MySQL', 'Git'],
   },
   {
     when: { pt: 'Mai/2024 a Fev/2025', en: 'May/2024 to Feb/2025' },
-    title: { pt: 'Coordenador de Estagiários', en: 'Intern Coordinator' },
+    period: { pt: '05/2024 - 02/2025', en: '05/2024 - 02/2025' },
+    title: { pt: 'Coordenador de Estagiários de TI', en: 'IT Intern Coordinator' },
     org: { pt: 'Prefeitura Municipal de Piraquara', en: 'City Hall of Piraquara' },
+    orgName: { pt: 'Prefeitura Municipal de Piraquara · Departamento de Hardware', en: 'City Hall of Piraquara · Hardware Department' },
+    place: { pt: 'Piraquara, PR', en: 'Piraquara, Brazil' },
     chip: { pt: 'Estagiário → Coordenador', en: 'Intern → Coordinator' },
     bullets: {
       pt: [
-        'Gestão e coordenação de equipe de estagiários de TI',
-        'Desenvolvimento e manutenção de sistemas para administração pública',
-        'Implantação de soluções tecnológicas para processos municipais',
-        'Liderança técnica e mentoria de novos estagiários',
+        'Suporte técnico, manutenção de computadores e atendimento aos usuários da prefeitura',
+        'Elaboração de Estudos Técnicos Preliminares (ETP) para processos de licitação do departamento',
+        'Criação do DOS, sistema web em Java e Spring Boot para controle de computadores em manutenção',
+        'Promovido a coordenador da equipe de estagiários do departamento',
       ],
       en: [
-        'Management and coordination of the IT intern team',
-        'Development and maintenance of public administration systems',
-        'Implementation of technology solutions for municipal processes',
-        'Technical leadership and mentoring of new interns',
+        'Technical support, computer maintenance and end-user assistance',
+        'Preparation of Preliminary Technical Studies (ETP) for the department’s procurement processes',
+        'Built DOS, a Java and Spring Boot web system to track computers under maintenance',
+        'Promoted to coordinator of the department’s intern team',
       ],
     },
+    stack: ['Java', 'Spring Boot', 'HTML', 'CSS', 'JavaScript', { pt: 'Suporte técnico', en: 'IT support' }],
   },
   {
     when: { pt: 'Set/2021 a Abr/2023', en: 'Sep/2021 to Apr/2023' },
+    period: { pt: '09/2021 - 04/2023', en: '09/2021 - 04/2023' },
     title: { pt: 'Desenvolvedor de Sistemas', en: 'Systems Developer' },
     org: 'DBlink Sistemas',
+    orgName: 'DBlink Sistemas',
     chip: { pt: 'Desenvolvedor', en: 'Developer' },
     bullets: {
       pt: [
-        'Desenvolvimento full-stack de sistemas corporativos',
-        'Implementação de APIs e integrações entre sistemas',
-        'Modelagem e otimização de banco de dados relacional',
-        'Aplicação de padrões de projeto e boas práticas de desenvolvimento',
+        'Desenvolvimento de soluções para clientes com GeneXus 9 e MySQL, em equipe ágil com Scrum e Kanban',
+        'Criação de CRUDs e relatórios em PDF e XML para dar aos clientes uma visão geral dos seus dados',
+        'Testes do software antes das entregas',
       ],
       en: [
-        'Full-stack development of corporate systems',
-        'API implementation and system integrations',
-        'Relational database modeling and optimization',
-        'Application of design patterns and development best practices',
+        'Built client solutions with GeneXus 9 and MySQL in an agile team using Scrum and Kanban',
+        'Developed CRUDs and PDF and XML reports giving clients an overview of their data',
+        'Software testing before deliveries',
       ],
     },
+    stack: ['GeneXus 9', 'MySQL', 'Scrum', 'Kanban', { pt: 'Testes de software', en: 'Software testing' }],
   },
 ]
 
@@ -393,6 +458,7 @@ export const experience = [
 export const projects = [
   {
     name: 'Portal JESS',
+    cvDesc: { pt: "Plataforma de gestão de projetos, clientes e cobranças da JESS, com conteúdo editável pelo cliente e assistente com IA.", en: "JESS's project, client and billing management platform, with client-editable content and an AI assistant." },
     kind: 'JESS',
     year: 2026,
     icon: 'fa-gauge-high',
@@ -406,6 +472,7 @@ export const projects = [
   },
   {
     name: 'PANDA',
+    cvDesc: { pt: "Ferramenta de avaliação heurística (Nielsen) com assistente LLM, tema do artigo publicado no ICEIS 2026.", en: "Heuristic evaluation tool (Nielsen) with an LLM assistant, subject of the paper published at ICEIS 2026." },
     kind: { pt: 'Produto', en: 'Product' },
     year: 2025,
     icon: 'fa-magnifying-glass-chart',
@@ -419,6 +486,7 @@ export const projects = [
   },
   {
     name: 'GM Select Brasil',
+    cvDesc: { pt: "Catálogo digital de produtos novos e usados, com navegação por categorias e pedidos pelo WhatsApp.", en: "Digital catalog of new and used products, with category navigation and WhatsApp orders." },
     kind: { pt: 'Cliente JESS', en: 'JESS client' },
     year: 2026,
     icon: 'fa-store',
@@ -432,6 +500,7 @@ export const projects = [
   },
   {
     name: 'Rancho da Cozinha',
+    cvDesc: { pt: "PWA de receitas offline-first com modo cozinha, cálculo nutricional e sincronização com Supabase.", en: "Offline-first recipe PWA with cooking mode, nutrition facts and Supabase sync." },
     kind: { pt: 'App pessoal', en: 'Personal app' },
     year: 2026,
     icon: 'fa-kitchen-set',
@@ -445,6 +514,7 @@ export const projects = [
   },
   {
     name: 'Riss Planejados',
+    cvDesc: { pt: "Site institucional premium para soluções em mármores, granitos e superfícies, com portfólio e captação pelo WhatsApp.", en: "Premium corporate website for marble, granite and surface solutions, with portfolio and WhatsApp lead capture." },
     kind: { pt: 'Cliente JESS', en: 'JESS client' },
     year: 2026,
     icon: 'fa-gem',
@@ -458,6 +528,7 @@ export const projects = [
   },
   {
     name: 'WBOTS 2026',
+    cvDesc: { pt: "Site oficial do Workshop sobre Bots na Engenharia de Software.", en: "Official website of the Workshop on Bots in Software Engineering." },
     kind: { pt: 'Evento acadêmico', en: 'Academic event' },
     year: 2026,
     icon: 'fa-robot',
@@ -476,7 +547,7 @@ export const volunteering = [
     icon: 'fa-tower-broadcast',
     title: { pt: 'Coordenador de Pastoral da Comunicação', en: 'Communication Ministry Coordinator' },
     org: { pt: 'Paróquia Nossa Senhora Auxiliadora', en: 'Our Lady Help of Christians Parish' },
-    desc: { pt: 'Coordenação das atividades de comunicação pastoral, gestão de redes sociais, produção de conteúdo e comunicação com a comunidade paroquial.', en: 'Coordination of pastoral communication activities, social media management, content production and communication with the parish community.' },
+    desc: { pt: 'Coordenação da comunicação da paróquia: transmissões ao vivo, gestão de redes sociais, criação de artes visuais e produção de conteúdo para a comunidade.', en: 'Coordination of parish communication: live streams, social media management, visual design and content production for the community.' },
     link: { url: 'https://gabrielfjm.github.io/auxiliadora/', label: { pt: 'Portal da paróquia, feito pela JESS', en: 'Parish portal, built by JESS' } },
   },
   {
