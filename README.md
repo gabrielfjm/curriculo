@@ -23,7 +23,7 @@ npm run preview  # testa o build
 - **Estilos**: `src/styles.css`
 - **Seções**: `src/components/`
 - **Arquivos estáticos** (foto otimizada, PDFs do currículo, CNAME): `public/`
-- **Foto original** (2048px, usada só para gerar o CV): `assets-src/foto-original.png`
+- **Foto do CV em PDF**: `assets-src/perfil_2.jpeg` (a original do site, 2048px, fica em `assets-src/foto-original.png`)
 
 ## Currículo em PDF
 

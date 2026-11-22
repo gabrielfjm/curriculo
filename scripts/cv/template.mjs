@@ -42,6 +42,7 @@ export function renderCV(lang, { iconDataUri, photoDataUri, fontCss }) {
     ['LinkedIn', link(profile.linkedin)],
     ['GitHub', link(profile.github)],
     [l.site, link('https://gabrielfjm.com.br')],
+    ...profile.academic.map((a) => [a.label, link(a.url, a.short)]),
   ].map(([k, v]) => `<span class="c"><span class="k">${esc(k)}:</span> ${v}</span>`).join('')
 
   const exp = experience.map((x) => `

@@ -10,6 +10,7 @@ const links = [
   { href: company.instagram, icon: 'fab fa-instagram', label: 'Instagram', value: company.instagramHandle },
   { href: profile.linkedin, icon: 'fab fa-linkedin-in', label: 'LinkedIn', value: 'in/gabrielfjm' },
   { href: profile.github, icon: 'fab fa-github', label: 'GitHub', value: 'github.com/gabrielfjm' },
+  ...profile.academic.map((a) => ({ href: a.url, icon: a.icon, label: a.label, value: a.value })),
 ]
 
 const fields = [

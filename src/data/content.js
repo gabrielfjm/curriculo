@@ -16,7 +16,14 @@ export const profile = {
   whatsapp: 'https://wa.me/5541984961004',
   github: 'https://github.com/gabrielfjm',
   linkedin: 'https://linkedin.com/in/gabrielfjm/',
-  cv: '/assets/curriculo.pdf',
+  // Perfis de pesquisador (ícones da Academicons)
+  academic: [
+    { label: 'Lattes', url: 'http://lattes.cnpq.br/1714544958085960', value: 'lattes.cnpq.br/1714544958085960', short: '1714544958085960', icon: 'ai ai-lattes' },
+    { label: 'ORCID', url: 'https://orcid.org/0009-0006-3737-303X', value: '0009-0006-3737-303X', short: '0009-0006-3737-303X', icon: 'ai ai-orcid' },
+    { label: 'Google Scholar', url: 'https://scholar.google.com/citations?user=F6mSOnEAAAAJ&hl=pt-BR', value: 'scholar.google.com', short: 'F6mSOnEAAAAJ', icon: 'ai ai-google-scholar' },
+    { label: 'ResearchGate', url: 'https://www.researchgate.net/profile/Gabriel-Felipe-Meira', value: 'researchgate.net/profile/Gabriel-Felipe-Meira', short: 'Gabriel-Felipe-Meira', icon: 'ai ai-researchgate' },
+  ],
+  cv:'/assets/curriculo.pdf',
   cvEn: '/assets/resume.pdf',
   // Foto otimizada (a original de 2048px fica em assets-src/ e é usada só para gerar o CV)
   avatar: '/assets/foto-800.webp',

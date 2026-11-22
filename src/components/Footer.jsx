@@ -106,6 +106,14 @@ export default function Footer() {
               </ul>
             </div>
             <div>
+              <h4>{t({ pt: 'Acadêmico', en: 'Academic' })}</h4>
+              <ul>
+                {profile.academic.map((a) => (
+                  <li key={a.url}><a href={a.url} target="_blank" rel="noopener">{a.label} ↗</a></li>
+                ))}
+              </ul>
+            </div>
+            <div>
               <h4>{t({ pt: 'Hora local', en: 'Local time' })}</h4>
               <p className="mono">Curitiba, BR<br />{time} (GMT-3)</p>
             </div>
