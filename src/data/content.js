@@ -16,18 +16,18 @@ export const profile = {
   whatsapp: 'https://wa.me/5541984961004',
   github: 'https://github.com/gabrielfjm',
   linkedin: 'https://linkedin.com/in/gabrielfjm/',
-  // Perfis de pesquisador (ícones da Academicons)
+  // Perfis de pesquisador (ícones da Academicons). value: texto no site · short: texto no CV · desc: legenda do card
   academic: [
-    { label: 'Lattes', url: 'http://lattes.cnpq.br/1714544958085960', value: 'lattes.cnpq.br/1714544958085960', short: '1714544958085960', icon: 'ai ai-lattes' },
-    { label: 'ORCID', url: 'https://orcid.org/0009-0006-3737-303X', value: '0009-0006-3737-303X', short: '0009-0006-3737-303X', icon: 'ai ai-orcid' },
-    { label: 'Google Scholar', url: 'https://scholar.google.com/citations?user=F6mSOnEAAAAJ&hl=pt-BR', value: 'scholar.google.com', short: 'F6mSOnEAAAAJ', icon: 'ai ai-google-scholar' },
-    { label: 'ResearchGate', url: 'https://www.researchgate.net/profile/Gabriel-Felipe-Meira', value: 'researchgate.net/profile/Gabriel-Felipe-Meira', short: 'Gabriel-Felipe-Meira', icon: 'ai ai-researchgate' },
+    { label: 'Lattes', url: 'http://lattes.cnpq.br/1714544958085960', value: 'lattes.cnpq.br/1714544958085960', short: '1714544958085960', icon: 'ai ai-lattes', desc: { pt: 'Currículo completo na Plataforma Lattes do CNPq', en: 'Full CV on the CNPq Lattes Platform' } },
+    { label: 'ORCID', url: 'https://orcid.org/0009-0006-3737-303X', value: '0009-0006-3737-303X', short: '0009-0006-3737-303X', icon: 'ai ai-orcid', desc: { pt: 'Identificador único de pesquisador', en: 'Unique researcher identifier' } },
+    { label: 'Google Scholar', url: 'https://scholar.google.com/citations?user=F6mSOnEAAAAJ&hl=pt-BR', value: 'scholar.google.com', short: 'F6mSOnEAAAAJ', icon: 'ai ai-google-scholar', desc: { pt: 'Publicações e citações', en: 'Publications and citations' } },
+    { label: 'ResearchGate', url: 'https://www.researchgate.net/profile/Gabriel-Felipe-Meira', value: 'researchgate.net/profile/Gabriel-Felipe-Meira', short: 'Gabriel-Felipe-Meira', icon: 'ai ai-researchgate', desc: { pt: 'Artigos e rede de pesquisa', en: 'Papers and research network' } },
   ],
-  cv:'/assets/curriculo.pdf',
+  cv: '/assets/curriculo.pdf',
   cvEn: '/assets/resume.pdf',
-  // Foto otimizada (a original de 2048px fica em assets-src/ e é usada só para gerar o CV)
-  avatar: '/assets/foto-800.webp',
-  avatarSrcSet: '/assets/foto-480.webp 480w, /assets/foto-800.webp 800w',
+  // Fotos otimizadas geradas por npm run foto a partir de assets-src/perfil_2.jpeg (?v= evita cache da foto antiga)
+  avatar: '/assets/foto-800.webp?v=2',
+  avatarSrcSet: '/assets/foto-480.webp?v=2 480w, /assets/foto-800.webp?v=2 800w',
   location: 'Piraquara, PR',
   coords: '25°26′S 49°04′W',
 }

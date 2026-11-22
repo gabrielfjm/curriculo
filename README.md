@@ -23,7 +23,7 @@ npm run preview  # testa o build
 - **Estilos**: `src/styles.css`
 - **Seções**: `src/components/`
 - **Arquivos estáticos** (foto otimizada, PDFs do currículo, CNAME): `public/`
-- **Foto do CV em PDF**: `assets-src/perfil_2.jpeg` (a original do site, 2048px, fica em `assets-src/foto-original.png`)
+- **Foto** (site e CV): `assets-src/perfil_2.jpeg`. Depois de trocar, rode `npm run foto` (gera as versões otimizadas em `public/assets/`) e `npm run cv`, e suba o `?v=` do `avatar` em `src/data/content.js` e do preload no `index.html`.
 
 ## Currículo em PDF
 

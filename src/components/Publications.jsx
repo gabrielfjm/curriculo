@@ -1,4 +1,4 @@
-import { publications } from '../data/content'
+import { profile, publications } from '../data/content'
 import { Rich, useLang } from '../lib/i18n'
 import { SectionHead } from './ui'
 
@@ -76,6 +76,31 @@ function Paper({ p, index }) {
   )
 }
 
+function AcademicProfiles() {
+  const { t } = useLang()
+  return (
+    <div className="acad">
+      <div className="acad-head rv">
+        <p className="label">{t({ pt: 'Perfis de pesquisador', en: 'Researcher profiles' })}</p>
+        <h3>{t({ pt: 'Redes acadêmicas', en: 'Academic profiles' })}</h3>
+      </div>
+      <div className="acad-grid">
+        {profile.academic.map((a) => (
+          <a key={a.url} href={a.url} target="_blank" rel="noopener" className="acad-card rv">
+            <span className="acad-top">
+              <span className="acad-ico"><i className={a.icon} /></span>
+              <span className="acad-arrow">↗</span>
+            </span>
+            <span className="acad-name">{a.label}</span>
+            <span className="acad-desc">{t(a.desc)}</span>
+            <span className="acad-id">{a.short}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function Publications() {
   return (
     <section id="publicacoes" className="sec alt">
@@ -89,6 +114,7 @@ export default function Publications() {
         <div className="papers">
           {publications.map((p, i) => <Paper p={p} index={i} key={p.short} />)}
         </div>
+        <AcademicProfiles />
       </div>
     </section>
   )
