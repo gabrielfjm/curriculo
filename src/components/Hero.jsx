@@ -91,10 +91,16 @@ export default function Hero({ ready }) {
 
         <div className="hero-bottom hero-anim">
           <div className="socials">
-            <a href={`mailto:${profile.email}`} className="soc magnetic" aria-label="Email"><i className="fas fa-envelope" /></a>
+            <a href={`mailto:${profile.email}`} className="soc magnetic" aria-label="Gmail">
+              {/* Gmail não existe no Font Awesome: SVG do Simple Icons (CC0) */}
+              <svg className="soc-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" /></svg>
+            </a>
             <a href={profile.github} target="_blank" rel="noopener" className="soc magnetic" aria-label="GitHub"><i className="fab fa-github" /></a>
             <a href={profile.linkedin} target="_blank" rel="noopener" className="soc magnetic" aria-label="LinkedIn"><i className="fab fa-linkedin-in" /></a>
             <a href={profile.whatsapp} target="_blank" rel="noopener" className="soc magnetic" aria-label="WhatsApp"><i className="fab fa-whatsapp" /></a>
+            {profile.academic.map((a) => (
+              <a key={a.url} href={a.url} target="_blank" rel="noopener" className="soc magnetic" aria-label={a.label}><i className={a.icon} /></a>
+            ))}
           </div>
           <div className="scroll-ind"><span className="track" /><span>Scroll</span></div>
           <span className="hide-sm">{profile.location} · {profile.coords}</span>
