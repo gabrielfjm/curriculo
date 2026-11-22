@@ -420,6 +420,8 @@ a:hover .roll > span, button:hover .roll > span { transform: translateY(-1.25em)
   transition: color .3s, background-color .3s, border-color .3s;
 }
 .soc:hover { color: var(--bg); background: var(--fg); border-color: var(--fg); }
+.soc .ai { font-size: 1.1rem; }
+.soc-svg { width: 1rem; height: 1rem; fill: currentColor; }
 
 .scroll-ind { display: flex; align-items: center; gap: .8rem; }
 .scroll-ind .track { position: relative; width: 1px; height: 44px; background: var(--line-2); overflow: hidden; }
@@ -951,6 +953,10 @@ footer { position: relative; z-index: 2; background: var(--bg); border-top: 1px 
   .nav { height: 64px; }
   #hero { padding-top: 88px; }
   .hero-top .hide-sm, .hero-bottom .hide-sm { display: none; }
+  /* 8 ícones em 2 linhas de 4, sem o indicador de scroll, longe do botão flutuante do WhatsApp */
+  .hero-bottom .scroll-ind { display: none; }
+  .socials { display: grid; grid-template-columns: repeat(4, 36px); gap: .5rem; }
+  .soc { width: 36px; height: 36px; font-size: .88rem; }
   .hero-name { font-size: 12.4vw; }
   .hero-card { grid-template-columns: 110px 1fr; }
   .frame { padding: 6px; }
